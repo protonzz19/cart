@@ -1,0 +1,837 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=320, initial-scale=1"> 
+<title>index</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+<link href="style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="themes/default/default.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" /> 
+<!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+<!--<script type="text/javascript" src="js/jquery_002.js"></script> -->
+<script type="text/javascript" src="js/jquery.min.js"></script> 
+<script type="text/javascript" src="js/jquery.nivo.slider.js"></script> 
+<!--<script type="text/javascript" src="js/base.js"></script>-->
+<script type="text/javascript" scr="js/fancybox.js"></script> 
+<script type="text/javascript">
+$(window).load(function() {
+	$('#slider').nivoSlider({
+		effect: 'random',
+		slices: 15,
+		boxCols: 8,
+		boxRows: 4,
+		animSpeed: 500,
+		pauseTime: 3000,
+		startSlide: 0,
+		directionNav: true,
+		controlNav: true,
+		controlNavThumbs: false,
+		pauseOnHover: true,
+		manualAdvance: false,
+		prevText: 'Prev',
+		nextText: 'Next',
+		randomStart: false,
+		beforeChange: function(){},
+		afterChange: function(){},
+		slideshowEnd: function(){},
+		lastSlide: function(){},
+		afterLoad: function(){}
+});
+});
+
+$(function($){
+   //Nav
+    $('#header #navblock ul.nav').on('mouseenter', 'li', function() {
+      $(this).children('ul, .notch').stop(true, true).fadeIn(200);
+    }).on('mouseleave', 'li', function() {
+      $(this).children('ul, .notch').stop(true, true).fadeOut(200);
+    });
+
+});
+ </script> 
+</head>
+
+<body id="page-index">
+  
+  
+  <div id="wrapthewrap">
+    <div id="wrap" class="clearfix">
+      <div id="mobile-header">
+        <button id="toggle-mobile-menu">Menu<span class="s1"></span><span class="s2"></span><span class="s3"></span></button>
+        
+  
+  <span class="custlogin">
+    
+    <a href="http://innovate-theme.myshopify.com/account/login" id="customer_login_link">Login</a>
+    
+    | <a href="http://innovate-theme.myshopify.com/account/register" id="customer_register_link">Register</a>
+    
+    
+  </span>
+  
+  
+        <a class="cartitems" href="http://innovate-theme.myshopify.com/cart">Cart (<span class="count">0</span>)</a>
+      <ul class="nav">
+                    
+                    
+                		<li class="first">
+                          
+                          
+                          
+                          
+                          <a href="http://innovate-theme.myshopify.com/">Home</a>
+                          
+            			</li>
+        			
+                		<li class="haschildren">
+                          
+                          
+                          
+                          
+                          <a class="hasdropdown" href="http://innovate-theme.myshopify.com/collections">Shop</a>
+                           <i class="notch"></i>
+                          <ul>
+                            
+                            <li>
+                              
+                              
+                              <a href="http://innovate-theme.myshopify.com/collections/featured">Featured</a>
+                              
+                            </li>
+                            
+                            <li>
+                              
+                              
+                              <a href="http://innovate-theme.myshopify.com/collections/we-love">We Love</a>
+                              
+                            </li>
+                            
+                          </ul>
+                          
+            			</li>
+        			
+                		<li>
+                          
+                          
+                          
+                          
+                          <a href="http://themes.shopify.com/designers/cleancanvas/?ref=cleancanvas">Try / Buy Theme</a>
+                          
+            			</li>
+        			
+                		<li class="haschildren">
+                          
+                          
+                          
+                          
+                          <a class="hasdropdown" href="#">Theme Presets</a>
+                           <i class="notch"></i>
+                          <ul>
+                            
+                            <li>
+                              
+                              
+                              <a href="http://oxford-theme.myshopify.com/">OXFORD THEME</a>
+                              
+                            </li>
+                            
+                            <li>
+                              
+                              
+                              <a href="http://naturale-theme.myshopify.com/">NATURALE THEME</a>
+                              
+                            </li>
+                            
+                            <li>
+                              
+                              
+                              <a href="http://innovate-theme.myshopify.com/">INNOVATE THEME</a>
+                              
+                            </li>
+                            
+                            <li>
+                              
+                              
+                              <a href="http://ocean-theme.myshopify.com/">OCEAN THEME</a>
+                              
+                            </li>
+                            
+                            <li class="haschildren">
+                              
+                              
+                              <a class="hasdropdown" href="http://themes.shopify.com/designers/cleancanvas/?ref=cleancanvas">Our Other Themes</a>
+                              <ul>
+                                
+                                <li><a href="http://cleanthemes.co.uk/products/canopy">Canopy</a></li>
+                                
+                                <li><a href="http://cleanthemes.co.uk/products/symmetry">Symmetry</a></li>
+                                
+                                <li><a href="http://cleanthemes.co.uk/products/alchemy">Alchemy</a></li>
+                                
+                                <li><a href="http://cleanthemes.co.uk/products/masonry">Masonry</a></li>
+                                
+                                <li><a href="http://cleanthemes.co.uk/products/showcase">Showcase</a></li>
+                                
+                              </ul>
+                              
+                            </li>
+                            
+                          </ul>
+                          
+            			</li>
+        			
+                		<li>
+                          
+                          
+                          
+                          
+                          <a href="http://innovate-theme.myshopify.com/blogs/news">Blog</a>
+                          
+            			</li>
+        			
+                		<li>
+                          
+                          
+                          
+                          
+                          <a href="http://innovate-theme.myshopify.com/pages/contact-us">Contact</a>
+                          
+            			</li>
+        			
+        		</ul></div>
+      <a href="#" class="cover-all toggle-mobile-menu"></a>
+        <div id="header">
+            <div id="shoplogo">
+                
+                    <a class="logo-image-wrap" href="http://innovate-theme.myshopify.com/" title="Innovate Theme"><img src="Innovate%20Theme_files/logo.png" alt="Innovate Theme"></a>
+                
+                
+              
+              
+  
+  <span class="custlogin">
+    
+    <a href="http://innovate-theme.myshopify.com/account/login" id="customer_login_link">Login</a>
+    
+    | <a href="http://innovate-theme.myshopify.com/account/register" id="customer_register_link">Register</a>
+    
+    
+  </span>
+  
+  
+            </div><!-- #shoplogo -->
+          
+          	<div class="social-icons">
+  
+  <a class="twitter" target="_blank" href="https://twitter.com/shopify">Twitter</a>
+  
+  
+  <a class="facebook" target="_blank" href="https://facebook.com/shopify">Facebook</a>
+  
+  
+  
+  
+  <a class="youtube" target="_blank" href="http://www.shopify.com/">YouTube</a>
+  
+  
+  
+  <a class="instagram" target="_blank" href="http://www.shopify.com/">Instagram</a>
+  
+  
+  
+  
+  <a class="google" target="_blank" href="http://www.shopify.com/">Google+</a>
+  
+</div><!-- .social -->
+          
+        	<div id="navblock" class="clearfix">
+                
+                <div class="searchcartwrap">
+                  <div class="search">
+                    <form action="/search" method="get">
+                      <input name="q" id="q" placeholder="Search" type="text">
+                    </form>
+                  </div><!-- .search -->
+                  <div id="cart">
+                    <div class="inner">
+                      <a class="cartitems" href="http://innovate-theme.myshopify.com/cart">Cart (<span class="count">0</span>)</a>
+                    </div>
+                  </div><!-- #cart -->
+                </div>
+                
+        		<ul class="nav">
+                    
+                    
+                		<li class="first">
+                          
+                          
+                          
+                          
+                          <a href="http://innovate-theme.myshopify.com/">Home</a>
+                          
+            			</li>
+        			
+                		<li>
+                          
+                          
+                          
+                          
+                          <a class="hasdropdown" href="http://innovate-theme.myshopify.com/collections">Shop</a>
+                          <span class="rq">»</span> <i class="notch"></i>
+                          <ul>
+                            
+                            <li>
+                              
+                              
+                              <a href="http://innovate-theme.myshopify.com/collections/featured">Featured</a>
+                              
+                            </li>
+                            
+                            <li>
+                              
+                              
+                              <a href="http://innovate-theme.myshopify.com/collections/we-love">We Love</a>
+                              
+                            </li>
+                            
+                          </ul>
+                          
+            			</li>
+        			
+                		<li>
+                          
+                          
+                          
+                          
+                          <a href="http://themes.shopify.com/designers/cleancanvas/?ref=cleancanvas">Try / Buy Theme</a>
+                          
+            			</li>
+        			
+                		<li>
+                          
+                          
+                          
+                          
+                          <a class="hasdropdown" href="#">Theme Presets</a>
+                          <span class="rq">»</span> <i class="notch"></i>
+                          <ul>
+                            
+                            <li>
+                              
+                              
+                              <a href="http://oxford-theme.myshopify.com/">OXFORD THEME</a>
+                              
+                            </li>
+                            
+                            <li>
+                              
+                              
+                              <a href="http://naturale-theme.myshopify.com/">NATURALE THEME</a>
+                              
+                            </li>
+                            
+                            <li>
+                              
+                              
+                              <a href="http://innovate-theme.myshopify.com/">INNOVATE THEME</a>
+                              
+                            </li>
+                            
+                            <li>
+                              
+                              
+                              <a href="http://ocean-theme.myshopify.com/">OCEAN THEME</a>
+                              
+                            </li>
+                            
+                            <li>
+                              
+                              
+                              <a class="hasdropdown" href="http://themes.shopify.com/designers/cleancanvas/?ref=cleancanvas">Our Other Themes</a>
+                              <ul>
+                                
+                                <li><a href="http://cleanthemes.co.uk/products/canopy">Canopy</a></li>
+                                
+                                <li><a href="http://cleanthemes.co.uk/products/symmetry">Symmetry</a></li>
+                                
+                                <li><a href="http://cleanthemes.co.uk/products/alchemy">Alchemy</a></li>
+                                
+                                <li><a href="http://cleanthemes.co.uk/products/masonry">Masonry</a></li>
+                                
+                                <li><a href="http://cleanthemes.co.uk/products/showcase">Showcase</a></li>
+                                
+                              </ul>
+                              
+                            </li>
+                            
+                          </ul>
+                          
+            			</li>
+        			
+                		<li>
+                          
+                          
+                          
+                          
+                          <a href="http://innovate-theme.myshopify.com/blogs/news">Blog</a>
+                          
+            			</li>
+        			
+                		<li>
+                          
+                          
+                          
+                          
+                          <a href="http://innovate-theme.myshopify.com/pages/contact-us">Contact</a>
+                          
+            			</li>
+        			
+        		</ul>
+        	</div><!-- #navblock -->
+        </div><!-- #header -->
+    
+        
+        
+        <div id="content">
+    
+    <div id="banners" class="clearfix">
+        <div class="slidecontainer">
+          <div class="slides nivoSlider">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <a style="display: block;" class="nivo-imageLink" href="http://innovate-theme.myshopify.com/collections/featured">
+              
+              
+              <img style="width: 960px; visibility: hidden;" src="Innovate%20Theme_files/slide_1_image.jpg" alt="Yes, you can add ALT tags too!">
+              
+              
+            </a>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <a style="display: block;" class="nivo-imageLink" href="http://innovate-theme.myshopify.com/collections/featured">
+              
+              
+              <img style="width: 960px; visibility: hidden;" src="Innovate%20Theme_files/slide_2_image.jpg" alt="Yes, you can add ALT tags too!">
+              
+              
+            </a>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+          <img style="display: inline; width: 960px; height: 600px; overflow: hidden;" class="nivo-main-image" src="Innovate%20Theme_files/slide_2_image.jpg"><div class="nivo-caption"></div><div class="nivo-directionNav"><a class="nivo-prevNav">Prev</a><a class="nivo-nextNav">Next</a></div><div style="left: 0px; width: 960px; height: 600px; opacity: 0.467037; overflow: hidden;" class="nivo-slice" name="0"><img src="Innovate%20Theme_files/slide_1_image.jpg" style="position:absolute; width:960px; height:auto; display:block !important; top:0; left:-0px;"></div><div style="left: 64px; width: 64px; height: 600px; opacity: 0; overflow: hidden;" class="nivo-slice" name="1"><img src="Innovate%20Theme_files/slide_1_image.jpg" style="position:absolute; width:960px; height:auto; display:block !important; top:0; left:-64px;"></div><div style="left: 128px; width: 64px; height: 600px; opacity: 0; overflow: hidden;" class="nivo-slice" name="2"><img src="Innovate%20Theme_files/slide_1_image.jpg" style="position:absolute; width:960px; height:auto; display:block !important; top:0; left:-128px;"></div><div style="left: 192px; width: 64px; height: 600px; opacity: 0; overflow: hidden;" class="nivo-slice" name="3"><img src="Innovate%20Theme_files/slide_1_image.jpg" style="position:absolute; width:960px; height:auto; display:block !important; top:0; left:-192px;"></div><div style="left: 256px; width: 64px; height: 600px; opacity: 0; overflow: hidden;" class="nivo-slice" name="4"><img src="Innovate%20Theme_files/slide_1_image.jpg" style="position:absolute; width:960px; height:auto; display:block !important; top:0; left:-256px;"></div><div style="left: 320px; width: 64px; height: 600px; opacity: 0; overflow: hidden;" class="nivo-slice" name="5"><img src="Innovate%20Theme_files/slide_1_image.jpg" style="position:absolute; width:960px; height:auto; display:block !important; top:0; left:-320px;"></div><div style="left: 384px; width: 64px; height: 600px; opacity: 0; overflow: hidden;" class="nivo-slice" name="6"><img src="Innovate%20Theme_files/slide_1_image.jpg" style="position:absolute; width:960px; height:auto; display:block !important; top:0; left:-384px;"></div><div style="left: 448px; width: 64px; height: 600px; opacity: 0; overflow: hidden;" class="nivo-slice" name="7"><img src="Innovate%20Theme_files/slide_1_image.jpg" style="position:absolute; width:960px; height:auto; display:block !important; top:0; left:-448px;"></div><div style="left: 512px; width: 64px; height: 600px; opacity: 0; overflow: hidden;" class="nivo-slice" name="8"><img src="Innovate%20Theme_files/slide_1_image.jpg" style="position:absolute; width:960px; height:auto; display:block !important; top:0; left:-512px;"></div><div style="left: 576px; width: 64px; height: 600px; opacity: 0; overflow: hidden;" class="nivo-slice" name="9"><img src="Innovate%20Theme_files/slide_1_image.jpg" style="position:absolute; width:960px; height:auto; display:block !important; top:0; left:-576px;"></div><div style="left: 640px; width: 64px; height: 600px; opacity: 0; overflow: hidden;" class="nivo-slice" name="10"><img src="Innovate%20Theme_files/slide_1_image.jpg" style="position:absolute; width:960px; height:auto; display:block !important; top:0; left:-640px;"></div><div style="left: 704px; width: 64px; height: 600px; opacity: 0; overflow: hidden;" class="nivo-slice" name="11"><img src="Innovate%20Theme_files/slide_1_image.jpg" style="position:absolute; width:960px; height:auto; display:block !important; top:0; left:-704px;"></div><div style="left: 768px; width: 64px; height: 600px; opacity: 0; overflow: hidden;" class="nivo-slice" name="12"><img src="Innovate%20Theme_files/slide_1_image.jpg" style="position:absolute; width:960px; height:auto; display:block !important; top:0; left:-768px;"></div><div style="left: 832px; width: 64px; height: 600px; opacity: 0; overflow: hidden;" class="nivo-slice" name="13"><img src="Innovate%20Theme_files/slide_1_image.jpg" style="position:absolute; width:960px; height:auto; display:block !important; top:0; left:-832px;"></div><div style="left: 896px; width: 64px; height: 600px; opacity: 0; overflow: hidden;" class="nivo-slice" name="14"><img src="Innovate%20Theme_files/slide_1_image.jpg" style="position:absolute; width:960px; height:auto; display:block !important; top:0; left:-896px;"></div></div><!-- .slides -->
+        </div><!-- .slidecontainer -->
+      	
+	</div><!-- #banners -->
+    <script type="text/javascript">
+        // <![CDATA[
+        $(function(){
+          if($('#content .slides img').length > 1) {
+            $('#content .slides').nivoSlider({
+              effect: 'fade',
+              pauseTime: 5000,
+              controlNav: false
+            });
+          }
+        });
+        // ]]>
+    </script>
+    
+
+  
+  <div class="collayout">
+    <div class="col-3-right">
+      
+      
+      
+      
+      
+      
+      
+      <div class="productlist top clearfix">
+        
+        <h3>Best Sellers</h3>
+        
+        
+        
+        
+        
+        <div class="product ">
+          
+<a style="height: 268px; line-height: 263px;" class="imagecontainer" href="http://innovate-theme.myshopify.com/collections/we-love/products/copy-of-panda-ears">
+    <span class="inner">
+    
+    
+        <span class="img1"><img class="prodimg" src="Innovate%20Theme_files/baby10_large.jpg" alt="Green Snug"></span>
+        <span style="opacity: 0; visibility: visible;" class="img2"><img class="prodimg" src="Innovate%20Theme_files/product6_large.jpg" alt="Green Snug"></span>
+    
+    </span>
+</a>
+<div style="height: 15px;" class="title"><a href="http://innovate-theme.myshopify.com/collections/we-love/products/copy-of-panda-ears">Green Snug</a></div>
+
+<div class="desc"><a href="http://innovate-theme.myshopify.com/collections/we-love/products/copy-of-panda-ears">This is a demo store for the Expression premium theme for Shop...</a></div>
+
+<div class="foot">
+    <div class="price">
+		
+		<span class="amount">$55.00</span>
+	</div>
+
+	
+    <div class="buttoncont">
+	    <a href="http://innovate-theme.myshopify.com/collections/we-love/products/copy-of-panda-ears">More details</a>
+    </div>
+	
+</div>
+        </div>
+        
+        
+        <div class="product  alt">
+          
+<a style="height: 268px; line-height: 263px;" class="imagecontainer" href="http://innovate-theme.myshopify.com/collections/we-love/products/hotchpotch">
+    <span class="inner">
+    
+      <span class="saleflag">Sale</span>
+    
+    
+        <span class="img1"><img class="prodimg" src="Innovate%20Theme_files/baby5_large.jpg" alt="Hotchpotch"></span>
+        <span style="opacity: 0; visibility: visible;" class="img2"><img class="prodimg" src="Innovate%20Theme_files/product3_large.jpg" alt="Hotchpotch"></span>
+    
+    </span>
+</a>
+<div style="height: 15px;" class="title"><a href="http://innovate-theme.myshopify.com/collections/we-love/products/hotchpotch">Hotchpotch</a></div>
+
+<div class="desc"><a href="http://innovate-theme.myshopify.com/collections/we-love/products/hotchpotch">This is a demo store for the Expression premium theme for Shop...</a></div>
+
+<div class="foot">
+    <div class="price">
+		<span class="reducedfrom">$65.00</span>
+		<span class="amount">$55.00</span>
+	</div>
+
+	
+    <div class="buttoncont">
+	    <a href="http://innovate-theme.myshopify.com/collections/we-love/products/hotchpotch">More details</a>
+    </div>
+	
+</div>
+        </div>
+        
+        
+        <div class="product  last">
+          
+<a style="height: 268px; line-height: 263px;" class="imagecontainer" href="http://innovate-theme.myshopify.com/collections/we-love/products/jersey">
+    <span class="inner">
+    
+    
+        <span class="img1"><img class="prodimg" src="Innovate%20Theme_files/baby2_large.jpg" alt="Jersey"></span>
+        <span style="opacity: 0; visibility: visible;" class="img2"><img class="prodimg" src="Innovate%20Theme_files/product1_large.jpg" alt="Jersey"></span>
+    
+    </span>
+</a>
+<div style="height: 15px;" class="title"><a href="http://innovate-theme.myshopify.com/collections/we-love/products/jersey">Jersey</a></div>
+
+<div class="desc"><a href="http://innovate-theme.myshopify.com/collections/we-love/products/jersey">This is a demo store for the Expression premium theme for Shop...</a></div>
+
+<div class="foot">
+    <div class="price">
+		
+		<span class="amount">$55.00</span>
+	</div>
+
+	
+    <div class="buttoncont">
+	    <a href="http://innovate-theme.myshopify.com/collections/we-love/products/jersey">More details</a>
+    </div>
+	
+</div>
+        </div>
+        
+        
+      </div><!-- .productlist -->
+      
+      
+      
+      <div class="productlist">
+        
+        <h3>New Arrivals</h3>
+        
+        
+        
+        
+        
+        <div class="product ">
+          
+<a style="height: 268px; line-height: 263px;" class="imagecontainer" href="http://innovate-theme.myshopify.com/collections/featured/products/tea-dress">
+    <span class="inner">
+    
+    
+        <span class="img1"><img class="prodimg" src="Innovate%20Theme_files/baby3_large.jpg" alt="Tea Dress"></span>
+        <span style="opacity: 0; visibility: visible;" class="img2"><img class="prodimg" src="Innovate%20Theme_files/product10_large.jpg" alt="Tea Dress"></span>
+    
+    </span>
+</a>
+<div style="height: 15px;" class="title"><a href="http://innovate-theme.myshopify.com/collections/featured/products/tea-dress">Tea Dress</a></div>
+
+<div class="desc"><a href="http://innovate-theme.myshopify.com/collections/featured/products/tea-dress">This is a demo store for the Expression premium theme for Shop...</a></div>
+
+<div class="foot">
+    <div class="price">
+		
+		<span class="amount">$55.00</span>
+	</div>
+
+	
+    <div class="buttoncont">
+	    <a href="http://innovate-theme.myshopify.com/collections/featured/products/tea-dress">More details</a>
+    </div>
+	
+</div>
+        </div>
+        
+        
+        <div class="product  alt">
+          
+<a style="height: 268px; line-height: 263px;" class="imagecontainer" href="http://innovate-theme.myshopify.com/collections/featured/products/khaki">
+    <span class="inner">
+    
+      <span class="saleflag">Sale</span>
+    
+    
+        <span class="img1"><img class="prodimg" src="Innovate%20Theme_files/baby8_large.jpg" alt="Pocket Tank"></span>
+        <span style="opacity: 0; visibility: visible;" class="img2"><img class="prodimg" src="Innovate%20Theme_files/product11_large.jpg" alt="Pocket Tank"></span>
+    
+    </span>
+</a>
+<div style="height: 15px;" class="title"><a href="http://innovate-theme.myshopify.com/collections/featured/products/khaki">Pocket Tank</a></div>
+
+<div class="desc"><a href="http://innovate-theme.myshopify.com/collections/featured/products/khaki">This is a demo store for the Expression premium theme for Shop...</a></div>
+
+<div class="foot">
+    <div class="price">
+		<span class="reducedfrom">$55.00</span>
+		<span class="amount"><span class="from">From </span>$45.00</span>
+	</div>
+
+	
+    <div class="buttoncont">
+	    <a href="http://innovate-theme.myshopify.com/collections/featured/products/khaki">More details</a>
+    </div>
+	
+</div>
+        </div>
+        
+        
+        <div class="product  last">
+          
+<a style="height: 268px; line-height: 263px;" class="imagecontainer" href="http://innovate-theme.myshopify.com/collections/featured/products/diggers">
+    <span class="inner">
+    
+    
+        <span class="img1"><img class="prodimg" src="Innovate%20Theme_files/baby9_large.jpg" alt="Panda Ears"></span>
+        <span style="opacity: 0; visibility: visible;" class="img2"><img class="prodimg" src="Innovate%20Theme_files/baby9b_large.jpg" alt="Panda Ears"></span>
+    
+    </span>
+</a>
+<div style="height: 15px;" class="title"><a href="http://innovate-theme.myshopify.com/collections/featured/products/diggers">Panda Ears</a></div>
+
+<div class="desc"><a href="http://innovate-theme.myshopify.com/collections/featured/products/diggers">This is a demo store for the Expression premium theme for Shop...</a></div>
+
+<div class="foot">
+    <div class="price">
+		
+		<span class="amount">$55.00</span>
+	</div>
+
+	
+    <div class="buttoncont">
+	    <a href="http://innovate-theme.myshopify.com/collections/featured/products/diggers">More details</a>
+    </div>
+	
+</div>
+        </div>
+        
+        
+      </div><!-- .productlist -->
+      
+      
+      
+    </div><!-- .col-3-right -->
+    <div class="col-1-left">
+      <div class="imagelink">
+    
+    <a href="http://innovate-theme.myshopify.com/collections/featured">
+    
+        <img src="Innovate%20Theme_files/left_image_1.png" alt="Explore this themes fantastic feature list">
+    
+    </a>
+    
+</div><!-- .imagelink -->
+      <div class="imagelink">
+    
+    <a href="http://innovate-theme.myshopify.com/collections/featured">
+    
+        <img src="Innovate%20Theme_files/left_image_2.png" alt="Theme Settings - no coding needed!">
+    
+    </a>
+    
+</div><!-- .imagelink -->
+      <div class="text">
+  <h2>About Us</h2>
+  <p>The About Us page of your shop is vital because it’s where users go
+ when first trying to determine a level of trust.  Since trust is such 
+an important part of selling online, it’s a good idea to give people a 
+fair amount information about yourself and your shop.  Here are a few 
+things you should touch on:
+
+	Who you are
+	Why you sell the items you sell
+	Where you are located
+	How lon...</p>
+  <p><a class="readmore" href="http://innovate-theme.myshopify.com/pages/about-us">Read more →</a></p>
+</div>
+      <div class="text blogsummary">
+  <h2>From the Blog</h2>
+  
+  
+  
+  
+  
+  <h3><a href="http://innovate-theme.myshopify.com/blogs/news/3633942-first-post">First Post</a></h3>
+  <p class="date">July 22, 2015</p>
+  <p>This is your blog. You can use it to write about new product launches, experiences, tips or other news you...</p>
+  <p><a class="readmore" href="http://innovate-theme.myshopify.com/blogs/news/3633942-first-post">Read more →</a></p>
+  
+  
+</div>
+      
+    </div><!-- .col-1-left -->
+  </div><!-- .collayout -->
+  
+</div><!-- #content -->
+        
+        
+        <div id="footer">
+            <div class="navcol">
+              <ul>
+                
+                <li><a href="http://themes.shopify.com/designers/cleancanvas/?ref=cleancanvas">Try / buy this theme</a></li>
+                
+                <li> | <a href="http://innovate-theme.myshopify.com/pages/about-us">About Us</a></li>
+                
+                <li> | <a href="http://innovate-theme.myshopify.com/pages/contact-us">Contact Us</a></li>
+                
+              </ul>
+            </div><!-- .navcol -->
+            <div class="signupcol">
+             	
+                    
+                        <form method="post" action="/contact#contact_form" id="contact_form" class="contact-form" accept-charset="UTF-8"><input value="customer" name="form_type" type="hidden"><input name="utf8" value="✓" type="hidden">
+                            <h4>Signup for our Newsletter</h4>
+                            
+                                
+                                <div class="">
+                                    <input id="contact_tags" name="contact[tags]" value="prospect,newsletter" type="hidden">
+                                    <input class="required" data-fieldname="Email address" id="mailinglist_email" name="contact[email]" placeholder="Email address" type="email">
+                                    <div class="buttoncont">
+                                        <input value="Subscribe" type="submit">
+                                    </div>
+                                </div>
+                            
+                        </form>
+                    
+                
+            </div><!-- .signupcol -->
+          
+            <div class="iconcol">
+              <h4>Follow Us</h4>
+              <div class="social-icons">
+  
+  <a class="twitter" target="_blank" href="https://twitter.com/shopify">Twitter</a>
+  
+  
+  <a class="facebook" target="_blank" href="https://facebook.com/shopify">Facebook</a>
+  
+  
+  
+  
+  <a class="youtube" target="_blank" href="http://www.shopify.com/">YouTube</a>
+  
+  
+  
+  <a class="instagram" target="_blank" href="http://www.shopify.com/">Instagram</a>
+  
+  
+  
+  
+  <a class="google" target="_blank" href="http://www.shopify.com/">Google+</a>
+  
+</div><!-- .social -->
+            </div><!-- .iconcol -->
+          
+            <div class="credits">
+              <div class="cards">
+                
+                <img src="Innovate%20Theme_files/creditcards_visa-e9f829d15f5ec3b1953ba8b9bc59b448ddb1ec9235a.svg">
+                
+                <img src="Innovate%20Theme_files/creditcards_master-94df290d56a3c6424296953282e18e46895ba94bd.svg">
+                
+                <img src="Innovate%20Theme_files/creditcards_american_express-54be4e6bfc1dbd42f93af603e102fde.svg">
+                
+                <img src="Innovate%20Theme_files/creditcards_paypal-dd71910a20fd73f78b4eed60e89331d4f4ceb38d5.svg">
+                
+                <img src="Innovate%20Theme_files/creditcards_diners_club-d07838507a213e5e52ef4272d3ccfe3da294.svg">
+                
+                <img src="Innovate%20Theme_files/creditcards_discover-96a6318d3deeede785ba12114a8d00bd23731f9.svg">
+                
+              </div><!-- .cards -->
+              
+              © 2016 <a href="http://innovate-theme.myshopify.com/" title="">Innovate Theme</a>.&nbsp; 
+              Theme by <a href="http://www.cleanthemes.co.uk/" target="_blank">Clean Themes</a>. 
+              <a target="_blank" rel="nofollow" href="https://www.shopify.com/">Ecommerce Software by Shopify</a>
+            </div><!-- .credits -->
+        </div><!-- #footer -->
+    </div><!-- #wrap -->
+  </div><!-- #wrapthewrap -->
+</html>

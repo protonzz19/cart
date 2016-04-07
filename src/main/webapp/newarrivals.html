@@ -1,0 +1,469 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=320, initial-scale=1"> 
+<title>index</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="themes/default/default.css" type="text/css" media="screen" />
+
+
+<script src="js/jquery-1.8.2.min.js"></script> <!-- http://code.jquery.com/jquery-1.8.2.min.js -->
+<!-- <script src="js/jquery.min.1.10.2.js"></script> --> <!-- http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.nivo.slider.js"></script> 
+<!-- <script type="text/javascript" src="js/base.js"></script> -->
+<script type="text/javascript" scr="js/fancybox.js"></script> 
+
+<script type="text/javascript">
+
+
+
+$(window).load(function() {
+	$('#slider').nivoSlider({
+		/*effect: 'random',*/
+		effect: 'fade',
+		slices: 15,
+		boxCols: 8,
+		boxRows: 4,
+		animSpeed: 500,
+		pauseTime: 3000,
+		startSlide: 0,
+		directionNav: true,
+		controlNav: true,
+		controlNavThumbs: false,
+		pauseOnHover: true,
+		manualAdvance: false,
+		prevText: 'Prev',
+		nextText: 'Next',
+		randomStart: false,
+		beforeChange: function(){},
+		afterChange: function(){},
+		slideshowEnd: function(){},
+		lastSlide: function(){},
+		afterLoad: function(){}
+	});
+});
+
+// <![CDATA[
+	
+	var mobileSnapWidth = 768; //Used all over
+$(function($){
+	
+
+
+	// Thumbnail image changes on hover in productlist
+	var $wrapcont = $('#wrap');
+    $('.productlist .imagecontainer, .miniproductlist .imagecontainer').each(function(){
+        if($(this).find('img').length > 1) {
+            $(this).find('.img2').css('opacity', 0).css('visibility', 'visible');
+            $(this).hover(function(){
+                if($wrapcont.width() >= mobileSnapWidth) {
+                    $img2 = $(this).find('.img2');
+                    $img2.stop(true,true).animate({opacity:1}, 200);
+                    $(this).find('.img1').stop(true,true).animate({opacity:0}, 200);
+                }
+            }, function(){
+                if($wrapcont.width() >= mobileSnapWidth) {
+                    $img2 = $(this).find('.img2');
+                    $(this).find('.img2').stop(true,true).animate({opacity:0}, 200);
+                    $(this).find('.img1').stop(true,true).animate({opacity:1}, 200);
+                }
+            });
+        }
+    });
+
+
+   //Nav
+    $('#header #navblock ul.nav').on('mouseenter', 'li', function() {
+      $(this).children('ul, .notch').stop(true, true).fadeIn(200);
+    }).on('mouseleave', 'li', function() {
+      $(this).children('ul, .notch').stop(true, true).fadeOut(200);
+    });
+
+
+	//mobile header
+	//Mobile nav
+  $(document).on('click', '#toggle-mobile-menu, .toggle-mobile-menu', function(e){
+    $('body').toggleClass('revealnav');
+    return false;
+  });
+  
+  $('#navblock ul.nav').clone().appendTo('#mobile-header').find('canvas, .rq').remove();
+    
+    var productsPerRowRightNow = $(window).width() >= mobileSnapWidth ? 4 : 1;
+    var $wrapcont = $('#wrap');
+    $(window).resize(function() {
+        //Do things when theme snaps - and on DOM ready
+        var contWidth = $wrapcont.width();
+        if(typeof($wrapcont.data('prevwidth')) == 'undefined'
+                || $wrapcont.data('prevwidth') != contWidth) {
+            //Do this when CSS framework 'snaps'
+            
+            productsPerRowRightNow = $(window).width() >= mobileSnapWidth ? 4 : 1;
+            
+            $('.productlist').normaliseHeights({
+                numPerRow:productsPerRowRightNow,
+                itemClass:'.product',
+                textRegionClasses:'.imagecontainer, .title'
+            }).find('.imagecontainer').each(function(){
+                $(this).css('line-height', ($(this).height()-5)+'px');
+            });
+            $('.miniproductlist').normaliseHeights({
+                numPerRow:productsPerRowRightNow,
+                itemClass:'li',
+                textRegionClasses:'.imagecontainer'
+            }).find('.imagecontainer').each(function(){
+                $(this).css('line-height', $(this).height()+'px');
+            });
+        }
+        $wrapcont.data('prevwidth', contWidth);
+    }).trigger('resize');
+    
+    //Trigger again once any fonts are loaded - force resize event
+    $(window).load(function(){
+        $('#wrap').data('prevwidth', null);
+        $(window).trigger('resize');
+    });
+    
+    $('.productlist .product .imagecontainer img').each(function(){
+        $(this).imagesLoaded(function(){
+            $('.productlist').normaliseHeights({
+                numPerRow:productsPerRowRightNow,
+                itemClass:'.product',
+                textRegionClasses:'.imagecontainer'
+            }).find('.imagecontainer').each(function(){
+                $(this).css('line-height', ($(this).height()-5)+'px');
+            });
+        });
+    });
+  
+//Mobile nav
+  $('#mobile-header ul.nav').on('click', 'li:has(ul) > a', function(){
+    if($(this).parent().toggleClass('reveal').hasClass('reveal')) {
+      $(this).siblings('ul').slideDown();
+    } else {
+      $(this).siblings('ul').slideUp();
+    }
+    return false;
+  }).find('li:has(ul)').addClass('haschildren');
+
+});
+//]]>
+ </script> 
+</head>
+
+<body id="page-index">
+
+
+<div id="wrapthewrap">
+  <div id="wrap">
+	<div id="mobile-header"> <!-- mobile menu toggle start -->
+    	<button id="toggle-mobile-menu">
+			Menu
+			<span class="s1"></span>
+			<span class="s2"></span>
+			<span class="s3"></span>
+		</button>
+		<ul class="nav">
+			<li class="first"><a href="#">Home</a></li>
+			<li><a href="#">New Arrivals</a></li>
+			<li class="haschildren">
+				<a class="hasdropdown">Catalogs</a>
+				<i class="notch"></i>
+				<ul>
+					<li><a href="#">bags</a></li>
+					<li><a href="#">shoes</a></li>
+					<li><a href="#">acessories</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Themepresets</a></li>
+			<li><a href="#">Blog</a></li>
+			<li><a href="#">Contact</a></li>
+			<li><a href="#">Location</a></li>
+		</ul> <!-- .nav -->
+    </div>   
+	<a href="#" class="cover-all toggle-mobile-menu"></a>
+	<!-- mobile menu toggle -->
+	
+    <div id="header">
+      <div id="shoplogo">
+      	<a class="logo-image-wrap">
+			<img src="img/logo.png" alt=""/>
+		</a>
+        <span class="custlogin"><a href="#">Login</a> | <a href="#">Register</a></span>
+        
+      	<div id="socialBar">
+        	<a class="twitter" target="_blank" href="https://twitter.com">Twitter</a>
+            <a class="facebook" target="_blank" href="https://facebook.com">Facebook</a>
+            <a class="google" target="_blank" href="https://googleplus.com">Google</a>
+        </div>
+      	<!-- #socialBar -->
+      </div>
+      <!-- #shoplogo -->
+      
+      <div id="navblock" class="clearfix">
+        <div class="searchcartwrap">
+       	  <div class="search"><form action="/search" method="get"><input type="text" value placeholder="Search"></form></div>
+          <!-- .search -->
+          <div id="cart">
+          	<div class="inner"><a class="cartitems" href="#">Cart (<span class="count">0</span>)</a></div>
+          </div>
+          <!-- #cart -->
+
+        </div>
+        <!-- .searchandcart -->
+
+        <ul class="nav">
+        	<li><a href="index.html">Home</a></li>
+            <li><a href="newarrivals.html">New arrivals</a></li>
+            <li><a class="hasdropdown">Catalogs</a>
+				<span class="rq">»</span>
+				<i class="notch"></i>
+            	<ul>
+                    <li><a  class="hasdropdown" href="catalogs.html">Bags</a>
+						<ul>
+							<li><a href="catalogs.html">Common</a></li>
+							<li><a href="catalogs.html">Pororo</a></li>
+							<li><a href="catalogs.html">Pukupuku</a></li>
+							<li><a href="catalogs.html">Kerokeropi</a></li>
+							<li><a href="catalogs.html">Others</a></li>
+						</ul>
+					</li>
+                    <li><a href="catalogs.html">Shoes</a></li>
+                    <li><a href="catalogs.html">Accessories</a></li>
+             	</ul>
+            </li>
+            <li><a href="blog.html">Blog</a></li>
+			<li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <!-- .nav -->
+      </div> 
+      <!-- #navblock -->
+	
+    	
+    </div>
+    <!-- #header -->
+
+	<div id="breadcrumbs">
+		<span class="text"><a href="#" title="Home">Home</a>»<a href="#">New Arrivals</a></span>
+		<span class="social clearfix"></span>
+	</div>
+	<!-- breadcrumbs -->
+    
+    <div id="content"> 
+		<h1>New Arrivals</h1>
+		<div class="tags">
+			<h3>Filter by »</h3>
+			<ul>
+				<li class="active"><a href="#">All</a></li>
+				<li><a href="#">Shirts</a></li>
+			</ul>
+		</div>
+		<!-- .tags -->
+
+		<div class="productlist">
+			<div class="product">
+                <a class="imagecontainer">
+					<span class="inner">
+						<span class="img1">
+							<img class="prodimg" src="img/baby10_large.jpg">
+						</span>
+						<span class="img2">
+							<img class="prodimg" src="img/product6_large.jpg" alt=""/>
+						</span>
+					</span>
+				</a>
+                <div class="title">Carera</div>
+                <div class="desc">This is a product of winter shirt</div>
+                <div class="foot">
+                    <div class="price"><span class="amount">$55.00</span></div>
+               		<div class="buttoncont"><a href="#">More Details</a></div>
+            	</div>
+        	</div>
+
+			<div class="product">
+                <a class="imagecontainer">
+					<span class="inner">
+						<span class="img1">
+							<img class="prodimg" src="img/baby10_large.jpg">
+						</span>
+						<span class="img2">
+							<img class="prodimg" src="img/product6_large.jpg" alt=""/>
+						</span>
+					</span>
+				</a>
+                <div class="title">Carera</div>
+                <div class="desc">This is a product of winter shirt</div>
+                <div class="foot">
+                    <div class="price"><span class="amount">$55.00</span></div>
+               		<div class="buttoncont"><a href="#">More Details</a></div>
+            	</div>
+        	</div>
+
+
+			<div class="product">
+                <a class="imagecontainer">
+					<span class="inner">
+						<span class="img1">
+							<img class="prodimg" src="img/baby10_large.jpg">
+						</span>
+						<span class="img2">
+							<img class="prodimg" src="img/product6_large.jpg" alt=""/>
+						</span>
+					</span>
+				</a>
+                <div class="title">Carera</div>
+                <div class="desc">This is a product of winter shirt</div>
+                <div class="foot">
+                    <div class="price"><span class="amount">$55.00</span></div>
+               		<div class="buttoncont"><a href="#">More Details</a></div>
+            	</div>
+        	</div>
+
+			<div class="product last">
+                <a class="imagecontainer">
+					<span class="inner">
+						<span class="img1">
+							<img class="prodimg" src="img/baby10_large.jpg">
+						</span>
+						<span class="img2">
+							<img class="prodimg" src="img/product6_large.jpg" alt=""/>
+						</span>
+					</span>
+				</a>
+                <div class="title">Carera</div>
+                <div class="desc">This is a product of winter shirt</div>
+                <div class="foot">
+                    <div class="price"><span class="amount">$55.00</span></div>
+               		<div class="buttoncont"><a href="#">More Details</a></div>
+            	</div>
+        	</div>
+
+			<div class="product">
+                <a class="imagecontainer">
+					<span class="inner">
+						<span class="img1">
+							<img class="prodimg" src="img/baby10_large.jpg">
+						</span>
+						<span class="img2">
+							<img class="prodimg" src="img/product6_large.jpg" alt=""/>
+						</span>
+					</span>
+				</a>
+                <div class="title">Carera</div>
+                <div class="desc">This is a product of winter shirt</div>
+                <div class="foot">
+                    <div class="price"><span class="amount">$55.00</span></div>
+               		<div class="buttoncont"><a href="#">More Details</a></div>
+            	</div>
+        	</div>
+
+			<div class="product">
+                <a class="imagecontainer">
+					<span class="inner">
+						<span class="img1">
+							<img class="prodimg" src="img/baby10_large.jpg">
+						</span>
+						<span class="img2">
+							<img class="prodimg" src="img/product6_large.jpg" alt=""/>
+						</span>
+					</span>
+				</a>
+                <div class="title">Carera</div>
+                <div class="desc">This is a product of winter shirt</div>
+                <div class="foot">
+                    <div class="price"><span class="amount">$55.00</span></div>
+               		<div class="buttoncont"><a href="#">More Details</a></div>
+            	</div>
+        	</div>
+
+			<div class="product">
+                <a class="imagecontainer">
+					<span class="inner">
+						<span class="img1">
+							<img class="prodimg" src="img/baby10_large.jpg">
+						</span>
+						<span class="img2">
+							<img class="prodimg" src="img/product6_large.jpg" alt=""/>
+						</span>
+					</span>
+				</a>
+                <div class="title">Carera</div>
+                <div class="desc">This is a product of winter shirt</div>
+                <div class="foot">
+                    <div class="price"><span class="amount">$55.00</span></div>
+               		<div class="buttoncont"><a href="#">More Details</a></div>
+            	</div>
+        	</div>
+
+			<div class="product last">
+                <a class="imagecontainer">
+					<span class="inner">
+						<span class="img1">
+							<img class="prodimg" src="img/baby10_large.jpg">
+						</span>
+						<span class="img2">
+							<img class="prodimg" src="img/product6_large.jpg" alt=""/>
+						</span>
+					</span>
+				</a>
+                <div class="title">Carera</div>
+                <div class="desc">This is a product of winter shirt</div>
+                <div class="foot">
+                    <div class="price"><span class="amount">$55.00</span></div>
+               		<div class="buttoncont"><a href="#">More Details</a></div>
+            	</div>
+        	</div>
+
+
+		</div>
+		<!-- .productlist -->
+    </div>
+    <!-- #content -->
+
+    <div id="footer">
+	  <div class="navcol">
+		<ul>
+		  <li><a href="#">Catalogs</a></li>
+		  <li> | <a href="#">About Us</a></li>
+ 	  	  <li> | <a href="#">Contact Us</a></li>
+		  <li> | <a href="#">Location</a></li>
+		</ul>
+	  </div>
+	  <!-- .navcol -->
+
+	  <div class="signupcol">
+		<form>
+		  <h4>Signup for our Newsletter</h4>
+		  <div class="">
+			<input type="email" placeholder="Email Address">
+			<div class="buttoncont">
+				<input value="Subscribe" type="submit" >
+			</div>
+          </div>
+        </form>
+		
+	  </div>
+	  <!-- signupcol -->
+	  
+	  <div class="iconcol">iconcol</div>
+	  <!-- .iconcol -->
+
+	  <div class="credit">credit</div>
+	  <!-- .credit -->
+
+    </div>
+    <!-- footer -->
+
+  </div> 
+  <!-- wrap -->
+</div> 
+<!-- wrapthewrap -->
+</body>
+</html>

@@ -1,0 +1,468 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=320, initial-scale=1"> 
+<title>index</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+<link href="fancybox.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="themes/default/default.css" type="text/css" media="screen" />
+
+
+<script src="js/jquery-1.8.2.min.js"></script> <!-- http://code.jquery.com/jquery-1.8.2.min.js -->
+<!-- <script src="js/jquery.min.1.10.2.js"></script> --> <!-- http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.nivo.slider.js"></script> 
+<!-- <script type="text/javascript" src="js/base.js"></script> -->
+<script type="text/javascript" scr="js/fancybox.js"></script> 
+
+<script type="text/javascript">
+
+
+
+$(window).load(function() {
+	$('#slider').nivoSlider({
+		/*effect: 'random',*/
+		effect: 'fade',
+		slices: 15,
+		boxCols: 8,
+		boxRows: 4,
+		animSpeed: 500,
+		pauseTime: 3000,
+		startSlide: 0,
+		directionNav: true,
+		controlNav: true,
+		controlNavThumbs: false,
+		pauseOnHover: true,
+		manualAdvance: false,
+		prevText: 'Prev',
+		nextText: 'Next',
+		randomStart: false,
+		beforeChange: function(){},
+		afterChange: function(){},
+		slideshowEnd: function(){},
+		lastSlide: function(){},
+		afterLoad: function(){}
+	});
+});
+
+// <![CDATA[
+	
+	var mobileSnapWidth = 768; //Used all over
+$(function($){
+	
+
+
+	// Thumbnail image changes on hover in productlist
+	var $wrapcont = $('#wrap');
+    $('.productlist .imagecontainer, .miniproductlist .imagecontainer').each(function(){
+        if($(this).find('img').length > 1) {
+            $(this).find('.img2').css('opacity', 0).css('visibility', 'visible');
+            $(this).hover(function(){
+                if($wrapcont.width() >= mobileSnapWidth) {
+                    $img2 = $(this).find('.img2');
+                    $img2.stop(true,true).animate({opacity:1}, 200);
+                    $(this).find('.img1').stop(true,true).animate({opacity:0}, 200);
+                }
+            }, function(){
+                if($wrapcont.width() >= mobileSnapWidth) {
+                    $img2 = $(this).find('.img2');
+                    $(this).find('.img2').stop(true,true).animate({opacity:0}, 200);
+                    $(this).find('.img1').stop(true,true).animate({opacity:1}, 200);
+                }
+            });
+        }
+    });
+
+
+   //Nav
+    $('#header #navblock ul.nav').on('mouseenter', 'li', function() {
+      $(this).children('ul, .notch').stop(true, true).fadeIn(200);
+    }).on('mouseleave', 'li', function() {
+      $(this).children('ul, .notch').stop(true, true).fadeOut(200);
+    });
+
+
+	//mobile header
+	//Mobile nav
+  $(document).on('click', '#toggle-mobile-menu, .toggle-mobile-menu', function(e){
+    $('body').toggleClass('revealnav');
+    return false;
+  });
+  
+  $('#navblock ul.nav').clone().appendTo('#mobile-header').find('canvas, .rq').remove();
+    
+    var productsPerRowRightNow = $(window).width() >= mobileSnapWidth ? 4 : 1;
+    var $wrapcont = $('#wrap');
+    $(window).resize(function() {
+        //Do things when theme snaps - and on DOM ready
+        var contWidth = $wrapcont.width();
+        if(typeof($wrapcont.data('prevwidth')) == 'undefined'
+                || $wrapcont.data('prevwidth') != contWidth) {
+            //Do this when CSS framework 'snaps'
+            
+            productsPerRowRightNow = $(window).width() >= mobileSnapWidth ? 4 : 1;
+            
+            $('.productlist').normaliseHeights({
+                numPerRow:productsPerRowRightNow,
+                itemClass:'.product',
+                textRegionClasses:'.imagecontainer, .title'
+            }).find('.imagecontainer').each(function(){
+                $(this).css('line-height', ($(this).height()-5)+'px');
+            });
+            $('.miniproductlist').normaliseHeights({
+                numPerRow:productsPerRowRightNow,
+                itemClass:'li',
+                textRegionClasses:'.imagecontainer'
+            }).find('.imagecontainer').each(function(){
+                $(this).css('line-height', $(this).height()+'px');
+            });
+        }
+        $wrapcont.data('prevwidth', contWidth);
+    }).trigger('resize');
+    
+    //Trigger again once any fonts are loaded - force resize event
+    $(window).load(function(){
+        $('#wrap').data('prevwidth', null);
+        $(window).trigger('resize');
+    });
+    
+    $('.productlist .product .imagecontainer img').each(function(){
+        $(this).imagesLoaded(function(){
+            $('.productlist').normaliseHeights({
+                numPerRow:productsPerRowRightNow,
+                itemClass:'.product',
+                textRegionClasses:'.imagecontainer'
+            }).find('.imagecontainer').each(function(){
+                $(this).css('line-height', ($(this).height()-5)+'px');
+            });
+        });
+    });
+  
+//Mobile nav
+  $('#mobile-header ul.nav').on('click', 'li:has(ul) > a', function(){
+    if($(this).parent().toggleClass('reveal').hasClass('reveal')) {
+      $(this).siblings('ul').slideDown();
+    } else {
+      $(this).siblings('ul').slideUp();
+    }
+    return false;
+  }).find('li:has(ul)').addClass('haschildren');
+
+});
+
+
+	/*$(function(){*/
+		var $wrapcont2 = $('#wrap');
+		var $width3 = $wrapcont2.width();
+	  $('#content .productimages .main a').fancybox({
+		onStart:function(){ return $width3 >= mobileSnapWidth; }
+	  });
+	
+	  $('#content .productimages .thumbs a').bind('click', function(){
+		var $atag = $(this);
+		var $maincont = $('#content .productimages .main');
+		var $mainconta = $maincont.find('a');
+		if($mainconta.find('.mainimg').attr('src') != $atag.data('hrefgrande')) {
+		  $maincont.height($maincont.height());
+		  $maincont.addClass('loading');
+		  $mainconta.find('.mainimg').removeClass('mainimg').fadeOut(200, function(){ 
+			$(this).remove();
+			$('<img class="mainimg">').bind('load', function(){
+			  $imgOnPage = $(this).appendTo($mainconta);
+			  $maincont.stop(true,true).animate({'height':$imgOnPage.height()}, 200);
+			  $imgOnPage.css({'display':'none', 'visibility':'visible'}).fadeIn(200, function(){
+				$maincont.removeClass('loading');
+			  });
+			  $mainconta.attr('href', $atag.attr('href'));
+			}).attr('src', $atag.data('hrefgrande')).css('visibility', 'hidden');
+		  });
+	
+		  return false;
+		}
+		return false;
+	  });
+	/*});*/// $(function(){ end
+
+//]]>
+ </script> 
+</head>
+
+<body id="page-index">
+
+
+<div id="wrapthewrap">
+  <div id="wrap">
+	<div id="mobile-header"> <!-- mobile menu toggle start -->
+    	<button id="toggle-mobile-menu">
+			Menu
+			<span class="s1"></span>
+			<span class="s2"></span>
+			<span class="s3"></span>
+		</button>
+		<ul class="nav">
+			<li class="first"><a href="#">Home</a></li>
+			<li><a href="#">New Arrivals</a></li>
+			<li class="haschildren">
+				<a class="hasdropdown">Catalogs</a>
+				<i class="notch"></i>
+				<ul>
+					<li><a href="#">bags</a></li>
+					<li><a href="#">shoes</a></li>
+					<li><a href="#">acessories</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Themepresets</a></li>
+			<li><a href="#">Blog</a></li>
+			<li><a href="#">Contact</a></li>
+			<li><a href="#">Location</a></li>
+		</ul> <!-- .nav -->
+    </div>   
+	<a href="#" class="cover-all toggle-mobile-menu"></a>
+	<!-- mobile menu toggle -->
+	
+    <div id="header">
+      <div id="shoplogo">
+      	<a class="logo-image-wrap">
+			<img src="img/logo.png" alt=""/>
+		</a>
+        <span class="custlogin"><a href="#">Login</a> | <a href="#">Register</a></span>
+        
+      	<div id="socialBar">
+        	<a class="twitter" target="_blank" href="https://twitter.com">Twitter</a>
+            <a class="facebook" target="_blank" href="https://facebook.com">Facebook</a>
+            <a class="google" target="_blank" href="https://googleplus.com">Google</a>
+        </div>
+      	<!-- #socialBar -->
+      </div>
+      <!-- #shoplogo -->
+      
+      <div id="navblock" class="clearfix">
+        <div class="searchcartwrap">
+       	  <div class="search"><form action="/search" method="get"><input type="text" value placeholder="Search"></form></div>
+          <!-- .search -->
+          <div id="cart">
+          	<div class="inner"><a class="cartitems" href="#">Cart (<span class="count">0</span>)</a></div>
+          </div>
+          <!-- #cart -->
+
+        </div>
+        <!-- .searchandcart -->
+
+        <ul class="nav">
+        	<li><a href="index.html">Home</a></li>
+            <li><a href="newarrivals.html">New arrivals</a></li>
+            <li><a class="hasdropdown">Catalogs</a>
+				<span class="rq">»</span>
+				<i class="notch"></i>
+            	<ul>
+                    <li><a  class="hasdropdown" href="catalogs.html">Bags</a>
+						<ul>
+							<li><a href="catalogs.html">Common</a></li>
+							<li><a href="catalogs.html">Pororo</a></li>
+							<li><a href="catalogs.html">Pukupuku</a></li>
+							<li><a href="catalogs.html">Kerokeropi</a></li>
+							<li><a href="catalogs.html">Others</a></li>
+						</ul>
+					</li>
+                    <li><a href="catalogs.html">Shoes</a></li>
+                    <li><a href="catalogs.html">Accessories</a></li>
+             	</ul>
+            </li>
+            <li><a href="blog.html">Blog</a></li>
+			<li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <!-- .nav -->
+      </div> 
+      <!-- #navblock -->
+	
+    	
+    </div>
+    <!-- #header -->
+
+	<div id="breadcrumbs">
+		<span class="text"><a href="#" title="Home">Home</a>»<a href="#">New Arrivals</a></span>
+		<span class="social clearfix"></span>
+	</div>
+	<!-- breadcrumbs -->
+    
+    <div id="content"> 
+		<h1>Jersey</h1><!--productname-->
+		<div class="productimages">
+			<div class="main">
+				<a href="#">
+					<img class="mainimg" src="img/product2_grande.jpg"/>
+				</a>
+			</div>
+			<!--.main-->
+
+			<div class="thumbs clearfix">
+				<ul>
+					<li>
+						<a rel="gallery" title="Jersey" data-hrefgrande="img/baby2_small.jpeg" href="img/baby2_small.jpeg">
+							<img src="img/baby2_small.jpeg">
+						</a>
+					</li>
+					<li>
+						<a rel="gallery" title="Jersey" data-hrefgrande="" href="img/product1_small.jpg">
+							<img src="img/product1_small.jpg">
+						</a>
+					</li>
+					<li>
+						<a rel="gallery" title="Jersey" data-hrefgrande="" href="img/product2_small.jpg">
+							<img src="img/product2_small.jpg">
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!--.thumbs-->
+			
+			
+		</div>
+		<!--.productimages-->
+
+		<div class="productdetail">
+			<form action="">
+				<div class="variants">
+					<div class="selector-wrapper">
+						<label for="product-select-option-0">Size</label>
+						<select class="single-option-selector" data-option="option1" id="product-select-option-0">
+							<option value="10">10</option>
+							<option value="12">12</option>
+							<option value="14">14</option>
+						</select>
+					</div>
+					<div class="selector-wrapper">
+						<label for="product-select-option-1">Color</label>
+						<select class="single-option-selector" data-option="option2" id="product-select-option-1">
+							<option value="Teal">Teal</option>
+							<option value="Yellow">Yellow</option>
+						</select>
+					</div>
+					<div class="product-select" name="id" style="display:none;">
+						<option selected="selected" value="9363955781" data-sku>10 / Teal - $55.00</option>
+						<option value="593831401" data-sku>10 / Yellow - $55.00</option>
+						<option value="936395545" data-sku>12 / Teal - $55.00</option>
+						<option value="593831405" data-sku>12 / Yellow - $55.00</option>
+						<option value="936955909" data-sku>14 / Teal - $55.00</option>
+						<option value="593831409" data-sku>14 / Yellow - $55.00</option>
+					</div>
+					<div id="price-field">$55.00</div>
+					<script type="text/javascript"></script>
+				</div>
+				<div class="quantity">
+					<label for="quantity">Quantity</label>
+					<input type="text" name="quantity" value="1" size="3">
+				</div>
+				<div class="buttoncont">
+					<input type="submit" name="add" value="Purchase" class="addtocart">
+				</div>
+			</form>
+			<div class="description pagecontent simple">
+				<p>Brkjdl Blkdjlsk skljlsdf slkdjfa lalkjasdf lasdfjlkasdf jasldkfj fajksldjfa jadklf Jkjfka alkdajlkdjf aksdjflajksdf adkfjlaba.,smd.,fmweoirwenrmn,rmqwbermnwebrnqwver </p>
+				<p>fj jfksdjf aslkdjf askdjfaklsdjflasj dflasjdfla sdlfjasfoiawuerojdklvnawlermw,nfquhremnwbtrvrjebn  sjdfj asdkjfla asdkljf asm asdf kasdjf aslkdf </p>
+				<p>brith askljd laksliubikd amdnvbmduwnaw sdkjsdfsa slkjfaoiuasmwend sdkjsdoiuwern sdkjsldjfoian sdfliusadof asmn faiudf aiosduf asodiuqkernq,webflhio adoifuaoisduf asldkjfasd</p>
+			</div>
+		</div>
+		<!---.productdetail-->
+
+		<div class="clearit"></div>
+		
+		
+    </div>
+    <!-- #content -->
+
+    <div id="footer">
+	  <div class="navcol">
+		<ul>
+		  <li><a href="#">Catalogs</a></li>
+		  <li> | <a href="#">About Us</a></li>
+ 	  	  <li> | <a href="#">Contact Us</a></li>
+		  <li> | <a href="#">Location</a></li>
+		</ul>
+	  </div>
+	  <!-- .navcol -->
+
+	  <div class="signupcol">
+		<form class="contact-form">
+		  <h4>Signup for our Newsletter</h4>
+		  <div class="">
+			<input type="email" placeholder="Email Address">
+			<div class="buttoncont">
+				<input value="Subscribe" type="submit" >
+			</div>
+          </div>
+        </form>
+		
+	  </div>
+	  <!-- signupcol -->
+	  
+	  <div class="iconcol">iconcol</div>
+	  <!-- .iconcol -->
+
+	  <div class="credit">credit</div>
+	  <!-- .credit -->
+
+    </div>
+    <!-- footer -->
+
+  </div> 
+  <!-- wrap -->
+</div> 
+<!-- wrapthewrap -->
+
+
+<div id="fancybox-tmp">
+</div>
+<div id="fancybox-loading">
+	<div>
+	</div>
+</div>
+<div id="fancybox-overlay">
+</div>
+<div id="fancybox-wrap">
+	<div id="fancybox-outer">
+		<div class="fancybox-bg" id="fancybox-bg-n">
+		</div>
+		<div class="fancybox-bg" id="fancybox-bg-ne">
+		</div>
+		<div class="fancybox-bg" id="fancybox-bg-e">
+		</div>
+		<div class="fancybox-bg" id="fancybox-bg-se">
+		</div>
+		<div class="fancybox-bg" id="fancybox-bg-s">
+		</div>
+		<div class="fancybox-bg" id="fancybox-bg-sw">
+		</div>
+		<div class="fancybox-bg" id="fancybox-bg-w">
+		</div>
+		<div class="fancybox-bg" id="fancybox-bg-nw">
+		</div>
+		<div id="fancybox-content">
+		</div>
+		<a id="fancybox-close">
+		</a>
+		<div id="fancybox-title">
+		</div>
+		<a href="javascript:;" id="fancybox-left">
+			<span class="fancy-ico" id="fancybox-left-ico">
+			</span>
+		</a>
+		<a href="javascript:;" id="fancybox-right">
+			<span class="fancy-ico" id="fancybox-right-ico">
+			</span>
+		</a>
+	</div>
+</div>
+<script id="PIN_1459516214917.f.callback[0]" type="text/javascript" charset="utf-8" src="./product_files/saved_resource">
+</script>
+<iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;">
+</iframe>
+
+</body>
+</html>

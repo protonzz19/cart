@@ -1,0 +1,471 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=320, initial-scale=1"> 
+<title>index</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="themes/default/default.css" type="text/css" media="screen" />
+
+
+<script src="js/jquery-1.8.2.min.js"></script> <!-- http://code.jquery.com/jquery-1.8.2.min.js -->
+<!-- <script src="js/jquery.min.1.10.2.js"></script> --> <!-- http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.nivo.slider.js"></script> 
+<!-- <script type="text/javascript" src="js/base.js"></script> -->
+<script type="text/javascript" scr="js/fancybox.js"></script> 
+
+<script type="text/javascript">
+
+
+
+$(window).load(function() {
+	$('#slider').nivoSlider({
+		/*effect: 'random',*/
+		effect: 'fade',
+		slices: 15,
+		boxCols: 8,
+		boxRows: 4,
+		animSpeed: 500,
+		pauseTime: 3000,
+		startSlide: 0,
+		directionNav: true,
+		controlNav: true,
+		controlNavThumbs: false,
+		pauseOnHover: true,
+		manualAdvance: false,
+		prevText: 'Prev',
+		nextText: 'Next',
+		randomStart: false,
+		beforeChange: function(){},
+		afterChange: function(){},
+		slideshowEnd: function(){},
+		lastSlide: function(){},
+		afterLoad: function(){}
+	});
+});
+
+// <![CDATA[
+	
+	var mobileSnapWidth = 768; //Used all over
+$(function($){
+	
+
+
+	// Thumbnail image changes on hover in productlist
+	var $wrapcont = $('#wrap');
+    $('.productlist .imagecontainer, .miniproductlist .imagecontainer').each(function(){
+        if($(this).find('img').length > 1) {
+            $(this).find('.img2').css('opacity', 0).css('visibility', 'visible');
+            $(this).hover(function(){
+                if($wrapcont.width() >= mobileSnapWidth) {
+                    $img2 = $(this).find('.img2');
+                    $img2.stop(true,true).animate({opacity:1}, 200);
+                    $(this).find('.img1').stop(true,true).animate({opacity:0}, 200);
+                }
+            }, function(){
+                if($wrapcont.width() >= mobileSnapWidth) {
+                    $img2 = $(this).find('.img2');
+                    $(this).find('.img2').stop(true,true).animate({opacity:0}, 200);
+                    $(this).find('.img1').stop(true,true).animate({opacity:1}, 200);
+                }
+            });
+        }
+    });
+
+
+   //Nav
+    $('#header #navblock ul.nav').on('mouseenter', 'li', function() {
+      $(this).children('ul, .notch').stop(true, true).fadeIn(200);
+    }).on('mouseleave', 'li', function() {
+      $(this).children('ul, .notch').stop(true, true).fadeOut(200);
+    });
+
+
+	//mobile header
+	//Mobile nav
+  $(document).on('click', '#toggle-mobile-menu, .toggle-mobile-menu', function(e){
+    $('body').toggleClass('revealnav');
+    return false;
+  });
+  
+  $('#navblock ul.nav').clone().appendTo('#mobile-header').find('canvas, .rq').remove();
+    
+    var productsPerRowRightNow = $(window).width() >= mobileSnapWidth ? 4 : 1;
+    var $wrapcont = $('#wrap');
+    $(window).resize(function() {
+        //Do things when theme snaps - and on DOM ready
+        var contWidth = $wrapcont.width();
+        if(typeof($wrapcont.data('prevwidth')) == 'undefined'
+                || $wrapcont.data('prevwidth') != contWidth) {
+            //Do this when CSS framework 'snaps'
+            
+            productsPerRowRightNow = $(window).width() >= mobileSnapWidth ? 4 : 1;
+            
+            $('.productlist').normaliseHeights({
+                numPerRow:productsPerRowRightNow,
+                itemClass:'.product',
+                textRegionClasses:'.imagecontainer, .title'
+            }).find('.imagecontainer').each(function(){
+                $(this).css('line-height', ($(this).height()-5)+'px');
+            });
+            $('.miniproductlist').normaliseHeights({
+                numPerRow:productsPerRowRightNow,
+                itemClass:'li',
+                textRegionClasses:'.imagecontainer'
+            }).find('.imagecontainer').each(function(){
+                $(this).css('line-height', $(this).height()+'px');
+            });
+        }
+        $wrapcont.data('prevwidth', contWidth);
+    }).trigger('resize');
+    
+    //Trigger again once any fonts are loaded - force resize event
+    $(window).load(function(){
+        $('#wrap').data('prevwidth', null);
+        $(window).trigger('resize');
+    });
+    
+    $('.productlist .product .imagecontainer img').each(function(){
+        $(this).imagesLoaded(function(){
+            $('.productlist').normaliseHeights({
+                numPerRow:productsPerRowRightNow,
+                itemClass:'.product',
+                textRegionClasses:'.imagecontainer'
+            }).find('.imagecontainer').each(function(){
+                $(this).css('line-height', ($(this).height()-5)+'px');
+            });
+        });
+    });
+  
+//Mobile nav
+  $('#mobile-header ul.nav').on('click', 'li:has(ul) > a', function(){
+    if($(this).parent().toggleClass('reveal').hasClass('reveal')) {
+      $(this).siblings('ul').slideDown();
+    } else {
+      $(this).siblings('ul').slideUp();
+    }
+    return false;
+  }).find('li:has(ul)').addClass('haschildren');
+
+});
+//]]>
+ </script> 
+</head>
+
+<body id="page-index">
+
+
+<div id="wrapthewrap">
+  <div id="wrap">
+	<div id="mobile-header"> <!-- mobile menu toggle start -->
+    	<button id="toggle-mobile-menu">
+			Menu
+			<span class="s1"></span>
+			<span class="s2"></span>
+			<span class="s3"></span>
+		</button>
+		<ul class="nav">
+			<li class="first"><a href="#">Home</a></li>
+			<li><a href="#">New Arrivals</a></li>
+			<li class="haschildren">
+				<a class="hasdropdown">Catalogs</a>
+				<i class="notch"></i>
+				<ul>
+					<li><a href="#">bags</a></li>
+					<li><a href="#">shoes</a></li>
+					<li><a href="#">acessories</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Themepresets</a></li>
+			<li><a href="#">Blog</a></li>
+			<li><a href="#">Contact</a></li>
+			<li><a href="#">Location</a></li>
+		</ul> <!-- .nav -->
+    </div>   
+	<a href="#" class="cover-all toggle-mobile-menu"></a>
+	<!-- mobile menu toggle -->
+	
+    <div id="header">
+      <div id="shoplogo">
+      	<a class="logo-image-wrap">
+			<img src="img/logo.png" alt=""/>
+		</a>
+        <span class="custlogin"><a href="#">Login</a> | <a href="#">Register</a></span>
+        
+      	<div id="socialBar">
+        	<a class="twitter" target="_blank" href="https://twitter.com">Twitter</a>
+            <a class="facebook" target="_blank" href="https://facebook.com">Facebook</a>
+            <a class="google" target="_blank" href="https://googleplus.com">Google</a>
+        </div>
+      	<!-- #socialBar -->
+      </div>
+      <!-- #shoplogo -->
+      
+      <div id="navblock" class="clearfix">
+        <div class="searchcartwrap">
+       	  <div class="search"><form action="/search" method="get"><input type="text" value placeholder="Search"></form></div>
+          <!-- .search -->
+          <div id="cart">
+          	<div class="inner"><a class="cartitems" href="#">Cart (<span class="count">0</span>)</a></div>
+          </div>
+          <!-- #cart -->
+
+        </div>
+        <!-- .searchandcart -->
+
+        <ul class="nav">
+        	<li><a href="index.html">Home</a></li>
+            <li><a href="newarrivals.html">New arrivals</a></li>
+            <li><a class="hasdropdown">Catalogs</a>
+				<span class="rq">»</span>
+				<i class="notch"></i>
+            	<ul>
+                    <li><a  class="hasdropdown" href="catalogs.html">Bags</a>
+						<ul>
+							<li><a href="catalogs.html">Common</a></li>
+							<li><a href="catalogs.html">Pororo</a></li>
+							<li><a href="catalogs.html">Pukupuku</a></li>
+							<li><a href="catalogs.html">Kerokeropi</a></li>
+							<li><a href="catalogs.html">Others</a></li>
+						</ul>
+					</li>
+                    <li><a href="catalogs.html">Shoes</a></li>
+                    <li><a href="catalogs.html">Accessories</a></li>
+             	</ul>
+            </li>
+            <li><a href="blog.html">Blog</a></li>
+			<li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <!-- .nav -->
+      </div> 
+      <!-- #navblock -->
+	
+    	
+    </div>
+    <!-- #header -->
+
+	<div id="breadcrumbs">
+		<span class="text"><a href="#" title="Home">Home</a>»<a href="#">New Arrivals</a></span>
+		<span class="social clearfix"></span>
+	</div>
+	<!-- breadcrumbs -->
+    
+    <div id="content" class="hasaside">
+		<div class="page-content">
+            <h1>Contact</h1>
+            if you want to contact us, please input some of your information to help us know you and come to you after we receive your inquiry.
+    
+            <form method="post" class="contact-form">
+                <input type="hidden" value="contact" name="form-type">
+                <input type="hidden" name="utf8" value="✓">
+                <div class="user-form">
+                        
+                    <dl class="clearfix">
+                        <dt class=""><label for="comment_name">Name</label></dt>
+                        <dd><input type="text" id="comment_name" name="contact[name]" size="31" value="" class=""></dd>
+                        <div class="clearit"></div>
+                        
+                        <dt class=""><label for="comment_email">Email</label></dt>
+                        <dd><input type="text" id="comment_email" name="contact[email]" size="31" value="" class=""></dd>
+                        <div class="clearit"></div>
+                        
+                        <dt class=""><label for="comment_body">Your message</label></dt>
+                        <dd>
+                            <textarea id="comment_body" name="contact[body]" class=""></textarea>
+                        </dd>
+                        <div class="clearit"></div>
+                    </dl>
+                </div>
+                <!--.userform-->		
+    
+                <div class="buttoncont">
+                    <input type="submit" value="Send" id="comment-submit">
+                </div>
+                <!--.buttoncont-->
+            </form>	
+    
+        </div>
+        <!-- .page-content -->
+
+	</div>
+	
+    <div id="aside">
+        
+        <div class="miniproductlist">
+            <h2>Featured products</h2>
+            <ul>
+            
+                <li>
+                    <div class="title" style="display: none; width: 78px; left: -11.5px;">
+                        <span>Green Snug</span>
+                        <i class="notch"></i>
+                    </div>
+                    <a class="imagecontainer" href="/products/copy-of-panda-ears" style="height: 88px; line-height: 88px;">
+                        <span class="img1" style="opacity: 1;"><img src="img/baby10_small.jpeg" alt="Green Snug"></span>
+                        <span class="img2" style="opacity: 0; visibility: visible;"><img src="img/product6_small.jpg" alt="Green Snug"></span>
+                    
+                    </a>
+                </li>
+                
+                <li>
+                    <div class="title" style="display: none; width: 79px; left: -12px;">
+                        <span>Hotchpotch</span>
+                        <i class="notch"></i>
+                    </div>
+                    <a class="imagecontainer" href="/products/hotchpotch" style="height: 88px; line-height: 88px;">
+                        <span class="img1" style="opacity: 1;"><img src="img/baby5_small.jpeg" alt="Hotchpotch"></span>
+                        <span class="img2" style="opacity: 0; visibility: visible;"><img src="img/product3_small.jpg" alt="Hotchpotch"></span>
+                    
+                    </a>
+                </li>
+                
+                <li class="end">
+                    <div class="title" style="display: none; width: 50px; left: 2.5px;">
+                        <span>Jersey</span>
+                        <i class="notch"></i>
+                    </div>
+                    <a class="imagecontainer" href="/products/jersey" style="height: 88px; line-height: 88px;">
+                        <span class="img1"><img src="img/baby2_small.jpeg?v=1449502094" alt="Jersey"></span>
+                    	<span class="img2" style="opacity: 0; visibility: visible;"><img src="img/product1_small.jpg?v=1449502094" alt="Jersey"></span>
+                    
+                    </a>
+                </li>
+                
+                <li>
+                    <div class="title" style="display: none; width: 53px; left: 1px;">
+                        <span>La Mer</span>
+                        <i class="notch"></i>
+                    </div>
+                    <a class="imagecontainer" href="/products/la-mer" style="height: 88px; line-height: 88px;">
+                        <span class="img1" style="opacity: 1;"><img src="img/baby4_small.jpeg?v=1449504787" alt="La Mer"></span>
+                    	<span class="img2" style="opacity: 0; visibility: visible;"><img src="img/product7_small.jpg?v=1449504797" alt="La Mer"></span>
+                    
+                    </a>
+                </li>
+                
+                <li>
+                    <div class="title" style="display: none; width: 74px; left: -9.5px;">
+                        <span>Panda Ears</span>
+                        <i class="notch"></i>
+                    </div>
+                    <a class="imagecontainer" href="/products/diggers" style="height: 88px; line-height: 88px;">
+                        <span class="img1" style="opacity: 1;"><img src="img/baby9_small.jpeg?v=1394125875" alt="Panda Ears"></span>
+                    	<span class="img2" style="opacity: 0; visibility: visible;"><img src="img/baby9b_small.jpeg?v=1394125875" alt="Panda Ears"></span>
+                    
+                    </a>
+                </li>
+                
+                <li class="end">
+                    <div class="title" style="display: none; width: 80px; left: -12.5px;">
+                        <span>Pocket Tank</span>
+                        <i class="notch"></i>
+                    </div>
+                    <a class="imagecontainer" href="/products/khaki" style="height: 88px; line-height: 88px;">
+                        <span class="img1" style="opacity: 1;"><img src="img/baby8_small.jpeg?v=1449682320" alt="Pocket Tank"></span>
+                    	<span class="img2" style="opacity: 0; visibility: visible;"><img src="img/product11_small.jpg?v=1449682320" alt="Pocket Tank"></span>
+                    
+                    </a>
+                </li>
+                
+                </ul>
+            <script type="text/javascript">
+            // <![CDATA[
+            $(function(){
+              //Set position & dimensions of popup title
+              $('#aside .miniproductlist li .title').each(function(){
+                //Set this to have a large width so the child span can find its natural width
+                $(this).css('visibility', 'hidden').show().css('width', 600);
+                $(this).width($(this).children().first().width() + 16);
+                $(this).hide().css('visibility', '');
+                //Now we have width, offset x
+                var w = $(this).width();
+                var contw = $(this).parent().width();
+                $(this).css('left', (contw / 2 - w / 2) - 8);
+              });
+              //Init popup title fade in
+              $('#aside .miniproductlist li .imagecontainer').hover(function(){
+                if($('#wrap').width() >= mobileSnapWidth) {
+                  $(this).prev().stop(true,true).fadeIn(200);
+                }
+              }, function(){
+                if($('#wrap').width() >= mobileSnapWidth) {
+                  $(this).prev().stop(true,true).fadeOut(100);
+                }
+              });
+            });
+            // ]]>
+            </script>
+        
+            <div class="clearit"></div>
+        </div>
+        
+        <div class="imagelink">
+            
+            <a href="/collections/featured">
+            
+                <img src="img/left_image_1.png" alt="Explore this themes fantastic feature list">
+            
+            </a>
+            
+        </div><!-- .imagelink -->
+        <div class="imagelink">
+            
+            <a href="/collections/featured">
+            
+                <img src="img/left_image_2.png" alt="Theme Settings - no coding needed!">
+            
+            </a>
+            
+        </div><!-- .imagelink -->
+        
+    
+    
+    
+    </div>
+
+    <div id="footer">
+	  <div class="navcol">
+		<ul>
+		  <li><a href="#">Catalogs</a></li>
+		  <li> | <a href="#">About Us</a></li>
+ 	  	  <li> | <a href="#">Contact Us</a></li>
+		  <li> | <a href="#">Location</a></li>
+		</ul>
+	  </div>
+	  <!-- .navcol -->
+
+	  <div class="signupcol">
+		<form>
+		  <h4>Signup for our Newsletter</h4>
+		  <div class="">
+			<input type="email" placeholder="Email Address">
+			<div class="buttoncont">
+				<input value="Subscribe" type="submit" >
+			</div>
+          </div>
+        </form>
+		
+	  </div>
+	  <!-- signupcol -->
+	  
+	  <div class="iconcol">iconcol</div>
+	  <!-- .iconcol -->
+
+	  <div class="credit">credit</div>
+	  <!-- .credit -->
+
+    </div>
+    <!-- footer -->
+
+  </div> 
+  <!-- wrap -->
+</div> 
+<!-- wrapthewrap -->
+</body>
+</html>

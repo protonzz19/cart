@@ -1,0 +1,349 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=320, initial-scale=1"> 
+<title>index</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="themes/default/default.css" type="text/css" media="screen" />
+<!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" /> -->
+<!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<!-- <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script> -->
+<!-- <script src="js/bootstrap.min.js"></script> -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!--<script type="text/javascript" src="js/jquery_002.js"></script>-->
+<script type="text/javascript" src="js/jquery.min.js"></script> 
+<script type="text/javascript" src="js/jquery.nivo.slider.js"></script> 
+<!--<script type="text/javascript" src="js/base.js"></script>-->
+<script type="text/javascript" scr="js/fancybox.js"></script> 
+<script type="text/javascript">
+$(window).load(function() {
+	$('#slider').nivoSlider({
+		effect: 'random',
+		slices: 15,
+		boxCols: 8,
+		boxRows: 4,
+		animSpeed: 500,
+		pauseTime: 3000,
+		startSlide: 0,
+		directionNav: true,
+		controlNav: true,
+		controlNavThumbs: false,
+		pauseOnHover: true,
+		manualAdvance: false,
+		prevText: 'Prev',
+		nextText: 'Next',
+		randomStart: false,
+		beforeChange: function(){},
+		afterChange: function(){},
+		slideshowEnd: function(){},
+		lastSlide: function(){},
+		afterLoad: function(){}
+	});
+});
+
+$(function($){
+	//'use strict';
+   //Nav
+    $('#header #navblock ul.nav').on('mouseenter', 'li', function() {
+      $(this).children('ul, .notch').stop(true, true).fadeIn(200);
+    }).on('mouseleave', 'li', function() {
+      $(this).children('ul, .notch').stop(true, true).fadeOut(200);
+    });
+});
+
+ </script> 
+</head>
+
+<body id="page-index">
+
+
+<div id="wrapthewrap">
+  <div id="wrap">
+	<div id="mobile-header"> <!-- mobile menu toggle start -->
+    	<button id="toggle-mobile-menu">
+			Menu
+			<span class="s1"></span>
+			<span class="s2"></span>
+			<span class="s3"></span>
+		</button>
+		<ul class="nav">
+			<li class="first"><a href="#">Home</a></li>
+			<li><a href="#">New Arrivals</a></li>
+			<li class="haschildren">
+				<a class="hasdropdown">Catalogs</a>
+				<i class="notch"></i>
+				<ul>
+					<li><a href="#">bags</a></li>
+					<li><a href="#">shoes</a></li>
+					<li><a href="#">acessories</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Themepresets</a></li>
+			<li><a href="#">Blog</a></li>
+			<li><a href="#">Contact</a></li>
+			<li><a href="#">Location</a></li>
+		</ul> <!-- .nav -->
+    </div>   
+	<a href="#" class="cover-all toggle-mobile-menu"></a>
+	<!-- mobile menu toggle -->
+	
+    <div id="header">
+      <div id="shoplogo">
+      	<a class="logo-image-wrap">
+			<img src="../../templ1/Innovate Theme_files/logo.png" alt=""/>
+		</a>
+        <span class="custlogin"><a href="#">Login</a> | <a href="#">Register</a></span>
+        
+      	<div id="socialBar">
+        	<a class="twitter" target="_blank" href="https://twitter.com">Twitter</a>
+            <a class="facebook" target="_blank" href="https://facebook.com">Facebook</a>
+            <a class="google" target="_blank" href="https://googleplus.com">Google</a>
+        </div>
+      	<!-- #socialBar -->
+      </div>
+      <!-- #shoplogo -->
+      
+      <div id="navblock" class="clearfix">
+        <div class="searchcartwrap">
+       	  <div class="search"><form action="/search" method="get"><input type="text" value placeholder="Search"></form></div>
+          <!-- .search -->
+          <div id="cart">
+          	<div class="inner"><a class="cartitems" href="#">Cart (<span class="count">0</span>)</a></div>
+          </div>
+          <!-- #cart -->
+
+        </div>
+        <!-- .searchandcart -->
+
+        <ul class="nav">
+        	<li><a href="#">Home</a></li>
+            <li><a href="#">new arrivals</a></li>
+            <li><a class="hasdropdown">catalogs</a>
+				<span class="rq">»</span>
+				<i class="notch"></i>
+            	<ul>
+                    <li><a href="#">bags</a></li>
+                    <li><a href="#">shoes</a></li>
+                    <li><a href="#">accessories</a></li>
+             	</ul>
+            </li>
+			<li><a class="hasdropdown" href="#">Theme Presets</a>
+				<span class="rq">»</span>
+				<i class="notch"></i>
+				<ul>
+					<li><a href="#">oxford theme</a></li>
+					<li><a href="#">natural theme</a></li>
+					<li><a href="#">innovate</a></li>
+					<li><a href="#">ocean theme</a></li>
+					<li><a class="hasdropdown" href="#">Other Theme</a>
+						<ul>
+							<li><a href="#">Canopy</a></li>
+							<li><a href="#">Symmetry</a></li>
+							<li><a href="#">Alchemy</a></li>
+							<li><a href="#">Masonry</a></li>
+							<li><a href="#">Showcase</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <!-- .nav -->
+      </div> 
+      <!-- #navblock -->
+	
+    	
+    </div>
+    <!-- #header -->
+    
+    <div id="content">
+   	  <div id="banners" class="clearfix">
+      	<div class="slidecontainer theme-default">
+      	  <div id="slider" class="nivoSlider ">
+          	<a href="#"><img style="width: 960px;" src="img/slide_1_image.jpg" alt=""/></a>
+            <a href="#"><img style="width: 960px;" src="img/slide_2_image.jpg" alt=""/></a>  
+			
+          </div>
+      	</div>
+        <!-- .slidecontainer -->
+      </div>
+      <!-- #banner -->	
+
+		
+      
+   	  <div class="collayout">
+
+		<div class="col-3-right">
+    		<div class="productlist top clearfix">
+                <h3>Best Seller</h3>
+                <div class="product">
+                  <a class="imagecontainer">
+					<span class="inner">
+						<span class="saleflag">Sale</span>
+						<span class="img1">
+							<img class="prodimg" src="img/baby10_large.jpg">
+						</span>
+						<span class="img2">
+							<img class="prodimg" src="img/product6_large.jpg" alt=""/>
+						</span>
+					</span>
+				  </a>
+                  <div class="title">Carera</div>
+                  <div class="desc">This is a product of winter shirt</div>
+                  <div class="foot">
+                    <div class="price"><span class="amount">$55.00</span></div>
+                    <div class="buttoncont"><a href="#">More Details</a></div>
+                  </div>
+                </div>
+                <div class="product">
+                  <a class="imagecontainer">
+					<span class="inner">
+						<span class="saleflag">Sale</span>
+						<span class="img1">
+							<img class="prodimg" src="img/baby8_large.jpg">
+						</span>
+						<span class="img2">
+							<img class="prodimg" src="img/product11_large.jpg" alt=""/>
+						</span>
+					</span>
+				  </a>
+                  <div class="title">Carera</div>
+                  <div class="desc">This is a product of winter shirt</div>
+                  <div class="foot">
+                    <div class="price"><span class="amount">$55.00</span></div>
+                    <div class="buttoncont"><a href="#">More Details</a></div>
+                  </div>
+                </div>
+                <div class="product last">
+                  <a class="imagecontainer">
+					<span class="inner">
+						<span class="saleflag">Sale</span>
+						<span class="img1">
+							<img class="prodimg" src="img/baby5_large.jpg">
+						</span>
+						<span class="img2">
+							<img class="prodimg" src="img/product3_large.jpg" alt=""/>
+						</span>
+					</span>
+				  </a>
+                  <div class="title">Carera</div>
+                  <div class="desc">This is a product of winter shirt</div>
+                  <div class="foot">
+                    <div class="price"><span class="amount">$55.00</span></div>
+                    <div class="buttoncont"><a href="#">More Details</a></div>
+                  </div>
+                </div>
+          </div>
+		  <!-- .productlist -->
+
+		  <div class="productlist">
+			<h3>New Arrivals</h3>
+                <div class="product">
+                  <a class="imagecontainer"><img src="img/baby10_large.jpg" alt=""/></a>
+                  <div class="title">Carera</div>
+                  <div class="desc">This is a product of winter shirt</div>
+                  <div class="foot">
+                    <div class="price"><span class="amount">$55.00</span></div>
+                    <div class="buttoncont"><a href="#">More Details</a></div>
+                  </div>
+                </div>
+                <div class="product">
+                  <a class="imagecontainer"><img src="img/baby10_large.jpg" alt=""/></a>
+                  <div class="title">Carera</div>
+                  <div class="desc">This is a product of winter shirt</div>
+                  <div class="foot">
+                    <div class="price"><span class="amount">$55.00</span></div>
+                    <div class="buttoncont"><a href="#">More Details</a></div>
+                  </div>
+                </div>
+                <div class="product last">
+                  <a class="imagecontainer"><img src="img/baby10_large.jpg" alt=""/></a>
+                  <div class="title">Carera</div>
+                  <div class="desc">This is a product of winter shirt</div>
+                  <div class="foot">
+                    <div class="price"><span class="amount">$55.00</span></div>
+                    <div class="buttoncont"><a href="#">More Details</a></div>
+                  </div>
+			    </div>
+		  </div>
+		  <!-- .productlist -->
+
+        </div>
+        <!-- #col-3-right -->
+   	  	<div class="col-1-left">
+   	  	  <div class="imagelink">
+			<img src="img/left_image_1.png" alt=""/>
+		  </div>
+		  <div class="imagelink">
+			<img src="img/left_image_2.png" alt=""/>
+		  </div>
+		  <div class="text">
+			<h2>About Us</h2>
+			<p>The About Us page of your shop is vital because it’s where users go when first trying to determine a level of trust. Since trust is such an important part of selling online, it’s a good idea to give people a fair amount information about yourself and your shop. Here are a few things you should touch on: Who you are Why you sell the items you sell Where you are located How lon...</p>
+			<p><a class="readmore" href="#">Read more →</a></p>
+		  </div>
+		  <div class="text">
+			<h3>From the Blog</h3>
+			<p class="date">July 22, 2015</p>
+			<p>This is your blog. You can use it to write about new product launches, experiences, tips or other news you...</p>
+			<p><a class="readmore" href="#">Read more →</a></p>
+		  </div>
+        </div>   	
+        <!-- #col-1-left -->  
+
+        
+
+      </div>
+      <!-- #collayout -->
+
+    </div>
+    <!-- #content -->
+
+    <div id="footer">
+	  <div class="navcol">
+		<ul>
+		  <li>Catalogs</li>
+		  <li>About Us</li>
+ 	  	  <li>Contact Us</li>
+		  <li>Location</li>
+		</ul>
+	  </div>
+	  <!-- .navcol -->
+
+	  <div class="signupcol">
+		<form>
+		  <h4>Signup for our Newsletter</h4>
+		  <div class="">
+			<input type="email" placeholder="Email Address">
+			<div class="buttoncont">
+				<input value="Subscribe" type="submit" >
+			</div>
+          </div>
+        </form>
+		
+	  </div>
+	  <!-- signupcol -->
+	  
+	  <div class="iconcol">iconcol</div>
+	  <!-- .iconcol -->
+
+	  <div class="credit">credit</div>
+	  <!-- .credit -->
+
+    </div>
+    <!-- footer -->
+
+  </div> 
+  <!-- wrap -->
+</div> 
+<!-- wrapthewrap -->
+</body>
+</html>
